@@ -67,8 +67,6 @@ export default async function Home() {
   if (!session) {
     redirect("/login?callbackUrl=/");
   }
-  console.log("....................................");
-  console.log(session);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1>Welcome, {session.user.first_name}!</h1>

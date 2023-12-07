@@ -16,7 +16,6 @@ export async function POST(request: Request) {
         email_notifications: true
       })
     );
-    console.log({ result })
     return NextResponse.json({ message: "Account Created!" }, { status: 201 });
   } catch (e: any) {
     console.log(e.errors[0].extensions.code);

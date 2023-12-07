@@ -15,7 +15,6 @@ export default function RegistrationForm() {
   const router = useRouter();
   const [error, setError] = useState('');
   const handleFormSubmit = async (data: Data) => {
-    console.log(data);
     const response = await signIn('credentials', {
       email: data.email,
       password: data.password,

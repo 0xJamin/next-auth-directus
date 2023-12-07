@@ -5,9 +5,7 @@ import RegistrationForm from "./form"
 
 export default async function RegisterPage() {
   const session = await getServerSession()
-  console.log(session)
   if (session) {
-    console.log({session})
     redirect("/")
   }
   return (

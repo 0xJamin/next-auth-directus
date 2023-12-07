@@ -31,7 +31,6 @@ export default function RequestResetForm({token}: {token: string}) {
       }
     }
   };
-console.log(token)
   return (
     <form onSubmit={handleFormSubmit} className=" md:w-[500px] w-full">
       <h1 className="capitalize text-lg font-medium my-4">

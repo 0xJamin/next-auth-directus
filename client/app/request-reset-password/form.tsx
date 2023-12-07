@@ -10,11 +10,9 @@ export default function RequestResetForm() {
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
   const reset_url = `${process.env.NEXT_PUBLIC_URL}/reset-password`;
-  console.log({ reset_url });
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(email);
 
     try {
       const response = await directus.request(
