@@ -1,0 +1,31 @@
+{
+  "name": "nextjs-directus",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@directus/sdk": "^13.0.2",
+    "next": "14.0.3",
+    "next-auth": "^4.24.5",
+    "nodemailer": "^6.9.7",
+    "react": "^18",
+    "react-dom": "^18",
+    "resend": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}
