@@ -1,7 +1,6 @@
-"use client";
-import AuthForm from "@/components/AuthForm";
-import { useRouter } from "next/navigation";
-import Router from "next/router";
+'use client';
+import AuthForm from '@/components/AuthForm';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 interface Data {
@@ -13,36 +12,35 @@ interface Data {
 
 export default function RegistrationForm() {
   const router = useRouter();
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
   const handleFormSubmit = async (data: Data) => {
     const response = await fetch(`/api/auth/register`, {
       method: 'POST',
       body: JSON.stringify({
-        ...data
+        ...data,
       }),
     });
     if (response.status === 201) {
       router.push('/');
       router.refresh();
+    } else {
+      response.status === 409
+        ? setError('A user with this email already exist')
+        : null;
     }
-    else {
-      response.status === 409 ? setError('A user with this email already exist') : null
-    }
-  }
+  };
 
   return (
     <>
-       {error && 
-        <p className='text-red-500'>
-          {error}
-        </p>}
-    <AuthForm title="Register here"
-      onSubmit={handleFormSubmit}
-      buttonText="Register"
-      linkDescription="Already have an account?"
-      linkText="Login"
-      linkHref="/login"
+      {error && <p className="text-red-500">{error}</p>}
+      <AuthForm
+        title="Register here"
+        onSubmit={handleFormSubmit}
+        buttonText="Register"
+        linkDescription="Already have an account?"
+        linkText="Login"
+        linkHref="/login"
       />
-      </>
+    </>
   );
 }

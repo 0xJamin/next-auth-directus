@@ -5,7 +5,7 @@ import { FormEvent, useState } from 'react';
 import { passwordRequest } from '@directus/sdk';
 import directus from '@/lib/directus';
 
-export default function RequestResetForm() {
+export default function RequestResetPasswordForm() {
   const [email, setEmail] = useState('');
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
@@ -23,9 +23,8 @@ export default function RequestResetForm() {
       );
     } catch (e: any) {
       console.log(e);
-      const code = e.errors[0].extensions.code;
-      if (code === 'FORBIDDEN') {
-        setError('A user with this email does not exist!');
+      if (e) {
+        setError('An error occurred, please try again!');
       }
     }
   };
