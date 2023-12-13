@@ -32,7 +32,7 @@ export default function RegistrationForm() {
 
   return (
     <>
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p>{error}</p>}
       <AuthForm
         title="Register here"
         onSubmit={handleFormSubmit}

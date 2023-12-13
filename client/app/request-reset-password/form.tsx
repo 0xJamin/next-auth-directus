@@ -30,16 +30,10 @@ export default function RequestResetPasswordForm() {
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className=" md:w-[500px] w-full">
-      <h1 className="capitalize text-lg font-medium my-4">
-        Reset your password
-      </h1>
-      {success && (
-        <p className="text-green-600 bg-green-50 p-2 rounded-md">{success}</p>
-      )}
-      {error && (
-        <p className="text-red-600 bg-red-50 p-2 rounded-md">{error}</p>
-      )}
+    <form onSubmit={handleFormSubmit}>
+      <h1>Reset your password</h1>
+      {success && <p>{success}</p>}
+      {error && <p>{error}</p>}
       <p>
         Enter your registered email and a reset password link will be sent to
         you
@@ -50,14 +44,9 @@ export default function RequestResetPasswordForm() {
         name="email"
         required
         onChange={(e) => setEmail(e.target.value)}
-        className="py-2 px-4 border border-indigo-500 rounded-md w-full my-5"
       />
-      <button className="bg-indigo-600 text-white py-3 px-6 w-full rounded-md">
-        Send Reset Link
-      </button>
-      <Link className="text-indigo-500 underline  mt-4 block" href="/login">
-        Login page
-      </Link>
+      <button>Send Reset Link</button>
+      <Link href="/login">Login page</Link>
     </form>
   );
 }

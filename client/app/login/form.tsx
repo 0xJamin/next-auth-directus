@@ -11,7 +11,7 @@ interface Data {
   password?: string;
 }
 
-export default function RegistrationForm() {
+export default function LoginForm() {
   const router = useRouter();
   const [error, setError] = useState('');
   const handleFormSubmit = async (data: Data) => {
@@ -26,7 +26,7 @@ export default function RegistrationForm() {
     } else {
       response.status === 401
         ? setError('Your email or password is incorrect')
-        : null;
+        : setError('An error occurred, please try again');
     }
   };
 
@@ -44,7 +44,6 @@ export default function RegistrationForm() {
       />
       <div className="md:w-[500px] w-full mt-4">
         <Link
-          className="text-indigo-500 underline "
           href="/request-reset-password"
         >
           Forgot password?

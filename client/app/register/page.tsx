@@ -1,16 +1,15 @@
-
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
-import RegistrationForm from "./form"
+import RegistrationForm from './form';
 
 export default async function RegisterPage() {
-  const session = await getServerSession()
+  const session = await getServerSession();
   if (session) {
-    redirect("/")
+    redirect('/');
   }
   return (
-    <div className="flex h-full flex-col justify-center min-h-screen items-center md:p-24 p-5">
+    <div>
       <RegistrationForm />
     </div>
-  )
+  );
 }

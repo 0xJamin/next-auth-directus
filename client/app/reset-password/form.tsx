@@ -31,16 +31,10 @@ export default function RequestResetForm({ token }: { token: string }) {
     }
   };
   return (
-    <form onSubmit={handleFormSubmit} className=" md:w-[500px] w-full">
-      <h1 className="capitalize text-lg font-medium my-4">
-        Provide a new password for your account
-      </h1>
-      {success && (
-        <p className="text-green-600 bg-green-50 p-2 rounded-md">{success}</p>
-      )}
-      {error && (
-        <p className="text-red-600 bg-red-50 p-2 rounded-md">{error}</p>
-      )}
+    <form onSubmit={handleFormSubmit}>
+      <h1>Provide a new password for your account</h1>
+      {success && <p>{success}</p>}
+      {error && <p>{error}</p>}
       <p>Enter your new password for your account</p>
       <input
         type="password"
@@ -49,11 +43,8 @@ export default function RequestResetForm({ token }: { token: string }) {
         required
         onChange={(e) => setNewPassword(e.target.value)}
         autoComplete="new-password"
-        className="py-2 px-4 border border-indigo-500 rounded-md w-full my-5"
       />
-      <button className="bg-indigo-600 text-white py-3 px-6 w-full rounded-md">
-        Create new password
-      </button>
+      <button>Create new password</button>
     </form>
   );
 }

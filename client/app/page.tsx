@@ -8,7 +8,7 @@ export default async function Home() {
     redirect('/login');
   }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main>
       <h1>
         Welcome, {session.user.first_name} {session.user.last_name}!
       </h1>

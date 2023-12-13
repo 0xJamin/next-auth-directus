@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { FormEvent, useState } from "react";
+import Link from 'next/link';
+import { FormEvent, useState } from 'react';
 
 interface Data {
   first_name?: string;
@@ -27,10 +27,10 @@ export default function AuthForm({
   isFullForm = true,
 }: AuthFormProps) {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    password: "",
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
   });
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -46,7 +46,7 @@ export default function AuthForm({
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className=" md:w-[500px] w-full">
+    <form onSubmit={handleFormSubmit}>
       <h1 className="capitalize text-lg font-medium my-4">{title}</h1>
       {isFullForm && (
         <>
@@ -57,7 +57,6 @@ export default function AuthForm({
             value={formData.first_name}
             onChange={handleInputChange}
             required
-            className="py-2 px-4 border border-indigo-500 rounded-md w-full my-5"
           />
           <input
             type="text"
@@ -66,7 +65,6 @@ export default function AuthForm({
             value={formData.last_name}
             onChange={handleInputChange}
             required
-            className="py-2 px-4 border border-indigo-500 rounded-md w-full my-5"
           />
         </>
       )}
@@ -77,7 +75,6 @@ export default function AuthForm({
         value={formData.email}
         onChange={handleInputChange}
         required
-        className="py-2 px-4 border border-indigo-500 rounded-md w-full my-5"
       />
       <input
         type="password"
@@ -86,19 +83,11 @@ export default function AuthForm({
         value={formData.password}
         required
         onChange={handleInputChange}
-        className="py-2 px-4 border border-indigo-500 rounded-md w-full my-5"
       />
-      <button className="bg-indigo-600 text-white py-3 px-6 w-full rounded-md">
-        {buttonText}
-      </button>
-      <p className="mt-4">
+      <button>{buttonText}</button>
+      <p>
         {linkDescription}
-        <Link
-          className="text-indigo-500 underline ml-2 "
-          href={linkHref}
-        >
-          {linkText}
-        </Link>
+        <Link href={linkHref}>{linkText}</Link>
       </p>
     </form>
   );
